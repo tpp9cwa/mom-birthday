@@ -9,7 +9,11 @@ export async function letterPage(root,{intro=false,onUnlock,onMusic}){
     const sheet=document.createElement('article');sheet.className='letter-sheet enter';sheet.append(text('p','a little something for you','eyebrow'),text('h1',letter.title,'hand'));
     letter.paragraphs.forEach(p=>sheet.append(text('p',p)));
     sheet.append(text('p',letter.signature,'signature hand'));
-    const explore=text('button','there’s a little more →','text-button');explore.onclick=()=>location.hash='garden';sheet.append(explore,giftBox());root.append(sheet);onUnlock();
+    const explore=text('button','there’s a little more →','text-button');
+    explore.hidden=true;
+    explore.onclick=()=>location.hash='garden';
+    const gift=giftBox({onOpen:()=>{explore.hidden=false;explore.classList.add('gift-next');}});
+    sheet.append(gift,explore);root.append(sheet);onUnlock();
   };
   if(!intro){renderLetter();return()=>{active=false;};}
   const greeting=document.createElement('section');greeting.className='greeting enter';

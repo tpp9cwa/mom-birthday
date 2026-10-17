@@ -2,7 +2,7 @@ import {content} from './content.js';
 import {text} from './data.js';
 
 // A small reusable reveal; no timers survive when its page is removed.
-export function giftBox(){
+export function giftBox({onOpen = () => {}} = {}){
   const wrap=document.createElement('section');wrap.className='gift';
   const button=document.createElement('button');button.className='gift-button';
   button.setAttribute('aria-label','Open a little gift');button.setAttribute('aria-expanded','false');
@@ -10,6 +10,6 @@ export function giftBox(){
   const hint=text('span','a little gift for you','gift-hint hand');button.append(hint);
   const message=text('p',content.gift?.message ?? 'this website will be up for the whole year, you can revisit it whenever you want','gift-message');message.hidden=true;
   const live=document.createElement('div');live.setAttribute('aria-live','polite');live.append(message);
-  button.onclick=()=>{if(button.getAttribute('aria-expanded')==='true')return;wrap.classList.add('is-open');button.setAttribute('aria-expanded','true');button.setAttribute('aria-label','Your gift is open');hint.textContent='yours to come back to ♡';message.hidden=false;};
+  button.onclick=()=>{if(button.getAttribute('aria-expanded')==='true')return;wrap.classList.add('is-open');button.setAttribute('aria-expanded','true');button.setAttribute('aria-label','Your gift is open');hint.textContent='yours to come back to ♡';message.hidden=false;onOpen();};
   wrap.append(button,live);return wrap;
 }
