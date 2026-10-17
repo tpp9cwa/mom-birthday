@@ -22,3 +22,28 @@
 .letter-sheet > .gift-next{display:block;margin:22px auto 0;animation:appear 1s 1.2s both}
 .letter-sheet > .text-button[hidden]{display:none}
 @media(prefers-reduced-motion:reduce){.letter-sheet > .gift-next{animation-delay:0s}}
+
+/* Polished garden artwork and character animation. */
+.avatar{width:8%;max-width:66px;min-width:30px;transform:translate(-50%,-94%)}
+.avatar svg{display:block}
+.avatar .avatar-back{display:none}
+.avatar[data-facing="back"] .avatar-back{display:inline}
+.avatar[data-facing="back"] .avatar-face,.avatar[data-facing="back"] .avatar-front{display:none}
+.avatar[data-facing="left"] svg{transform:scaleX(-1)}
+.avatar[data-facing="left"] .avatar-face,.avatar[data-facing="right"] .avatar-face{transform:translateX(2px)}
+.avatar.walking svg{animation:none}
+.avatar-person{transform-origin:40px 98px}
+.avatar.walking .avatar-person{animation:avatar-bob .36s ease-in-out infinite}
+.avatar-leg{transform-box:view-box;transform-origin:40px 76px}
+.avatar-arm{transform-box:view-box;transform-origin:40px 55px}
+.avatar.walking .leg-left{animation:avatar-step .36s ease-in-out infinite alternate}
+.avatar.walking .leg-right{animation:avatar-step .36s ease-in-out infinite alternate-reverse}
+.avatar.walking .arm-left{animation:avatar-arm .36s ease-in-out infinite alternate-reverse}
+.avatar.walking .arm-right{animation:avatar-arm .36s ease-in-out infinite alternate}
+.near-prompt{z-index:150}
+.garden-butterfly{animation:butterfly-drift 7s ease-in-out infinite;transform-origin:310px 166px}
+@keyframes avatar-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.8px)}}
+@keyframes avatar-step{from{transform:translateY(-2px) rotate(-3deg)}to{transform:translateY(1px) rotate(3deg)}}
+@keyframes avatar-arm{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+@keyframes butterfly-drift{0%,100%{transform:translate(310px,166px) rotate(-4deg)}50%{transform:translate(319px,158px) rotate(5deg)}}
+@media(prefers-reduced-motion:reduce){.avatar.walking .avatar-person,.avatar.walking .avatar-leg,.avatar.walking .avatar-arm,.garden-butterfly{animation:none}}
