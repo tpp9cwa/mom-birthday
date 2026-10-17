@@ -1,10 +1,69 @@
-import {repository,text} from '../data.js';
-export async function memoriesPage(root){
-  const items=await repository.getMemories();let index=0,start=null;root.className='memories-page enter';
-  root.innerHTML='<p class="eyebrow">a few moments I kept</p><h1 class="hand">our memories</h1><figure class="memory"><img><figcaption><p class="memory-date"></p><h2 class="hand"></h2><p class="memory-caption"></p></figcaption></figure><div class="memory-controls"><button class="prev" aria-label="Previous memory">←</button><span aria-live="polite"></span><button class="next" aria-label="Next memory">→</button></div><p class="sample-note">illustrated placeholders · your photos will go here</p>';
-  const img=root.querySelector('img');
-  function render(){const m=items[index];img.src=m.image;img.alt=m.alt;root.querySelector('.memory-date').textContent=m.date;root.querySelector('h2').textContent=m.title;root.querySelector('.memory-caption').textContent=m.caption;root.querySelector('.memory-controls span').textContent=`${index+1} / ${items.length}`;}
-  function step(d){index=(index+d+items.length)%items.length;render();}
-  root.querySelector('.prev').onclick=()=>step(-1);root.querySelector('.next').onclick=()=>step(1);
-  root.querySelector('figure').addEventListener('pointerdown',e=>{start=e.clientX;});root.querySelector('figure').addEventListener('pointerup',e=>{if(start!==null&&Math.abs(e.clientX-start)>45)step(e.clientX<start?1:-1);start=null;});render();return()=>{};
+import {repository} from '../data.js';
+
+export async function memoriesPage(root) {
+  const photos = await repository.getMemories();
+  let index = 0;
+  let start = null;
+  root.className = 'memories-page enter';
+  root.innerHTML = `
+    <p class="eyebrow">a few moments I kept</p>
+    <h1 class="hand">our memories</h1>
+    <figure class="memory">
+      <div class="photo-frame"><img decoding="async"></div>
+      <figcaption>
+        <p class="memory-date"></p>
+        <h2 class="hand"></h2>
+        <p class="memory-caption"></p>
+      </figcaption>
+    </figure>
+    <div class="memory-controls">
+      <button class="prev" aria-label="Previous photo">←</button>
+      <button class="next" aria-label="Next photo">→</button>
+    </div>
+    <p class="photo-status" role="status"></p>`;
+  const frame = root.querySelector('.photo-frame');
+  const image = root.querySelector('img');
+  const status = root.querySelector('.photo-status');
+  image.draggable = false;
+  function render() {
+    const photo = photos[index];
+    if (!photo) {
+      image.hidden = true;
+      status.textContent = 'A little space for memories to come.';
+      return;
+    }
+    image.hidden = false;
+    status.textContent = '';
+    image.style.visibility = 'visible';
+    image.src = photo.image;
+    image.alt = photo.alt;
+    for (const [selector, value] of [
+      ['.memory-date', photo.date], ['h2', photo.title], ['.memory-caption', photo.caption]
+    ]) {
+      const element = root.querySelector(selector);
+      element.textContent = value || '';
+      element.hidden = !value;
+    }
+    root.querySelector('figcaption').hidden = !photo.date && !photo.title && !photo.caption;
+  }
+  function step(direction) {
+    if (!photos.length) return;
+    index = (index + direction + photos.length) % photos.length;
+    render();
+  }
+  image.onerror = () => {
+    image.style.visibility = 'hidden';
+    status.textContent = 'This photo couldn’t load. You can try the next one.';
+  };
+  image.onload = () => { image.style.visibility = 'visible'; status.textContent = ''; };
+  root.querySelector('.prev').onclick = () => step(-1);
+  root.querySelector('.next').onclick = () => step(1);
+  frame.addEventListener('pointerdown', event => { start = event.clientX; });
+  frame.addEventListener('pointerup', event => {
+    if (start !== null && Math.abs(event.clientX - start) > 45) step(event.clientX < start ? 1 : -1);
+    start = null;
+  });
+  frame.addEventListener('pointercancel', () => { start = null; });
+  render();
+  return () => { image.onload = null; image.onerror = null; };
 }

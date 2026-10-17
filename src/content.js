@@ -1,6 +1,7 @@
 // ALL TEXT BELOW IS SAMPLE COPY. Replace it with your own words.
 // Keep IDs stable: they are used to remember which flowers were discovered.
 export const content = {
+  gift: {message: 'this website will be up for the whole year, you can revisit it whenever you want'},
   greeting: 'hey mom, guess what?',
   letter: {title: 'happy birthday, mom.', paragraphs: [
     'There are a thousand little things I want to thank you for. The ordinary days. The little kindnesses. The way you make everything feel a bit more like home.',
@@ -15,11 +16,15 @@ export const content = {
     {id:'seen',x:42,y:77,color:'#f1c6a1',title:'thank you',message:'Thank you for noticing the little things, even when nobody else does.'},
     {id:'wish',x:48,y:24,color:'#ece5ac',title:'a wish for you',message:'More laughter. More rest. More days spent doing the things you love. You deserve all of them.'}
   ],
-  memories: [
-    {id:'one',image:'/assets/memory-seaside.svg',alt:'Sample illustration of a sunny seaside',date:'a day worth keeping',title:'remember this?',caption:'Replace this with a photo and the little detail you remember most about that day.'},
-    {id:'two',image:'/assets/memory-home.svg',alt:'Sample illustration of a warm kitchen window',date:'the everyday kind of lovely',title:'the little things',caption:'This could be a meal, a conversation, or a quiet afternoon together. It doesn’t have to be a big occasion to matter.'},
-    {id:'three',image:'/assets/memory-hills.svg',alt:'Sample illustration of hills at sunset',date:'and all the days ahead',title:'more of this, please.',caption:'A place for another memory—or a little promise of something we’ll do together.'}
-  ],
+  // Add pic1.jpg through pic18.jpg to public/assets/.
+  memories: Array.from({ length: 18 }, (_, i) => ({
+    id: `pic${i + 1}`,
+    image: `/assets/pic${i + 1}.jpg`,
+    alt: `Family memory ${i + 1}`,
+    date: '',
+    title: '',
+    caption: ''
+  })),
   compliments: ['I love the way you care about the little things.','I love your laugh. Especially when you can’t stop.','I love how you make people feel welcome.','I love that so much of who I am began with you.','I love you on the ordinary days, too.'],
   music: { file: null, volume: 0.16 } // e.g. '/assets/your-licensed-song.mp3'. null uses the included original music-box melody.
 };

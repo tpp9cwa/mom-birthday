@@ -1,6 +1,6 @@
 # A little world, just for Mom
 
-Version 0.1: a complete first iteration with sample content. Minimal opening → animated heart envelope → letter → softly revealed menu. Separate garden, memories, and compliments pages. Gentle original synthesized music, keyboard/touch movement, accessible flower list, local discovery progress, and reduced-motion styling.
+Version 0.3: a complete first iteration with sample content. Minimal opening → animated heart envelope → letter → softly revealed menu. Separate garden, memories, and compliments pages. Gentle original synthesized music, keyboard/touch movement, accessible flower list, local discovery progress, and reduced-motion styling.
 
 ## Run on your laptop
 
@@ -73,3 +73,27 @@ npm run preview
 Tests cover garden bounds, nearby interaction selection, and reachability/IDs for current flower content. Source syntax, module imports, and output assets are checked during delivery. This version has not had real browser/device QA in the creation environment. Verify envelope timing, music startup, dialog behavior, keyboard controls, tap-to-walk, portrait/landscape layouts, and reduced motion on your actual devices before gifting it.
 
 This first iteration is local and not published. A private GitHub repository does not make the deployed website private: access protection would be a separate decision before publishing personal photos.
+
+
+## Updating from 0.1
+
+Copy the updated `src` folder into your existing project. Keep your existing `src/content.js` if you have already personalized it; the gift works with the old content file too. Keep your existing `public/assets` photos and music. Copy the updated tests as well if you use them. No dependency installation or Cloudflare settings changes are needed.
+
+The gift box now appears at the end of the letter. Tap it to lift its lid and reveal the year-long revisit message. To customize that wording, optionally add `gift: { message: 'your message' }` inside the exported content object. This is a message only; actual availability depends on keeping the deployment and domain active.
+
+Compliment messages shuffle without repeats until all messages have been shown, then shuffle again without a consecutive repeat at the cycle boundary. There is no visible total, counter, or completion notice. Add any number of entries to `compliments` in `src/content.js`. The garden discovery count and completion announcement are also removed; visited flower markers are retained.
+
+After copying the update, run `npm run dev` to check it, then commit and push to your existing repository:
+
+```sh
+git add .
+git commit -m "Add animated gift and endless-feeling messages"
+git push
+```
+
+
+## Version 0.3: your 18 photos
+
+This is the full project with all previous updates included. Add `pic1.jpg` through `pic18.jpg` to `public/assets/`. File names and capitalization must match exactly on Cloudflare. The gallery loads these in numeric order and displays every photo whole, preserving its proportions. Blank captions are hidden; there are no photo or message counters. Sample illustrations are no longer used.
+
+If replacing an existing local project, retain your existing `.git` folder and copy the new project files into that same repository folder. Keep any personalized content separately before replacing `src/content.js`; this package still contains sample letter/compliment text. No reinstall or Cloudflare configuration change is needed. Add the photos, run `npm run dev` to check locally, then commit and push as usual.
