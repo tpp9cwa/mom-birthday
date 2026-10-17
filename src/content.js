@@ -7,7 +7,7 @@ export const content = {
       'I know I\'ll be away for your 56th birthday Mom and I can\'t give you anything until I come back, so I made this website for you while I\'m in Oxford. I love you, and there are a thousand things I want to thank you for. The ordinary days and your little kindnesses. I hope you stay happy and healthy so we can do a lot of fun stuff together. You are the best mom I could have ever asked for and you always make me feel at home. Seriously I am so grateful for everything you\'ve done for me, and I wish I could pay you back but I don\'t think I ever could.',
       'So I made you this website, it\'s like a little world, and I added some memories to keep, flowers to find, and a few things I always want to say to you.',
       'I hope you like it. Take your time mom, every thing here is for you.'
-  ], signature: 'with love,\nyour son ♡'},
+  ], signature: 'with love,\nyour son ♡ 10/24/2026'},
   flowers: [
     {id:'home', x:28,y:37,color:'#e8a5af',title:'a little reminder',message:'Your love always makes me feel at home.'},
       {id:'ordinary',x:69,y:35,color:'#d5b86d',title:'the ordinary days',message:'You make the ordinary days feel special and I wish I could remember every day.'},
