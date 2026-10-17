@@ -19,7 +19,7 @@ export const content = {
   // Add pic1.jpg through pic18.jpg to public/assets/.
   memories: Array.from({ length: 18 }, (_, i) => ({
     id: `pic${i + 1}`,
-    image: `/assets/pic${i + 1}.jpg`,
+    image: `/assets/pic${i + 1}.JPG`,
     alt: `Family memory ${i + 1}`,
     date: '',
     title: '',
