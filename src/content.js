@@ -4,9 +4,9 @@ export const content = {
   gift: {message: 'this website will be up for the whole year, you can revisit it whenever you want'},
   greeting: 'hey mom, guess what?',
   letter: {title: 'happy birthday, mom.', paragraphs: [
-      'There are a thousand little things I want to thank you for. The ordinary days and your little kindnesses. You are the best mom I could have ever asked for and you always make me feel at home.',
-      'So I made you a little world, and I added my memories to keep, flowers to find, and a few things I always want to say to you.',
-      'Take your time mom, every thing here is for you.'
+      'I know I\'ll be away for your 56th birthday Mom and I can\'t give you anything until I come back, so I made this website for you while I\'m in Oxford. I love you, and there are a thousand things I want to thank you for. The ordinary days and your little kindnesses. I hope you stay happy and healthy so we can do a lot of fun stuff together. You are the best mom I could have ever asked for and you always make me feel at home. Seriously I am so grateful for everything you\'ve done for me, and I wish I could pay you back but I don\'t think I ever could.',
+      'So I made you this website, it\'s like a little world, and I added some memories to keep, flowers to find, and a few things I always want to say to you.',
+      'I hope you like it. Take your time mom, every thing here is for you.'
   ], signature: 'with love,\nyour son ♡'},
   flowers: [
     {id:'home', x:28,y:37,color:'#e8a5af',title:'a little reminder',message:'Your love always makes me feel at home.'},
@@ -24,6 +24,6 @@ export const content = {
     title: '',
     caption: ''
   })),
-    compliments: ['I love that you are always on time.','I love when you smile','I love how I can always come home.','I love that I can be your son.','I love you everyday.', 'I love how humble you are.', 'You are awesome', 'Thank you for always doing your best to take care of me.', 'Thank you for trying so hard all the time.', 'Your cooking is the best even though dad doesnt like it, I love eomma haejuneun bab.', 'Thanks for making me smarter than everyone else.', 'I want you in my life forever mom.'],
+    compliments: ['I love that you are always on time.','I love when you smile','I love how I can always come home.','I love that I can be your son.','I love you everyday.', 'I love how humble you are.', 'You are awesome', 'Thank you for always doing your best to take care of me.', 'Thank you for trying so hard all the time.', 'Your cooking is the best even though dad doesnt like it, I love eomma haejuneun bab.', 'Thanks for making me smarter than everyone else.', 'I want you in my life forever mom.', 'I\'m never too busy for you mom.', 'I\'ll never be too busy for you mom.', 'Does appa like my website? pretty impressive right?'],
   music: { file: null, volume: 0.16 } // '/assets/song.mp3'. null uses the included original music-box melody.
 };

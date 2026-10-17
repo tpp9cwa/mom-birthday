@@ -6,7 +6,7 @@ export async function memoriesPage(root) {
   let start = null;
   root.className = 'memories-page enter';
   root.innerHTML = `
-    <p class="eyebrow">a few moments I kept</p>
+    <p class="eyebrow">worlds best mom and son photo album</p>
     <h1 class="hand">our memories</h1>
     <figure class="memory">
       <div class="photo-frame"><img decoding="async"></div>
