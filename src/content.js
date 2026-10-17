@@ -1,22 +1,21 @@
-// ALL TEXT BELOW IS SAMPLE COPY. Replace it with your own words.
-// Keep IDs stable: they are used to remember which flowers were discovered.
+
+// Keep IDs stable.
 export const content = {
   gift: {message: 'this website will be up for the whole year, you can revisit it whenever you want'},
   greeting: 'hey mom, guess what?',
   letter: {title: 'happy birthday, mom.', paragraphs: [
-    'There are a thousand little things I want to thank you for. The ordinary days. The little kindnesses. The way you make everything feel a bit more like home.',
-    'So I made you a little world. There are memories to keep, flowers to find, and a few things I don’t say often enough.',
-    'Take your time. Every little thing here is for you.'
-  ], signature: 'with love,\nme ♡'},
+      'There are a thousand little things I want to thank you for. The ordinary days and your little kindnesses. You are the best mom I could have ever asked for and you always make me feel at home.',
+      'So I made you a little world, and I added my memories to keep, flowers to find, and a few things I always want to say to you.',
+      'Take your time mom, every thing here is for you.'
+  ], signature: 'with love,\nyour son ♡'},
   flowers: [
-    {id:'home', x:28,y:37,color:'#e8a5af',title:'a little reminder',message:'Wherever life takes me, your love always feels like home.'},
-    {id:'ordinary',x:69,y:35,color:'#d5b86d',title:'the ordinary days',message:'You make the ordinary days feel special. Those are the days I remember most.'},
-    {id:'laughter',x:18,y:65,color:'#b5bee0',title:'your laugh',message:'One of my favorite sounds in the whole world is you laughing.'},
-    {id:'courage',x:75,y:65,color:'#c4add1',title:'something you gave me',message:'There is a little of your courage in everything brave I do.'},
-    {id:'seen',x:42,y:77,color:'#f1c6a1',title:'thank you',message:'Thank you for noticing the little things, even when nobody else does.'},
-    {id:'wish',x:48,y:24,color:'#ece5ac',title:'a wish for you',message:'More laughter. More rest. More days spent doing the things you love. You deserve all of them.'}
+    {id:'home', x:28,y:37,color:'#e8a5af',title:'a little reminder',message:'Your love always makes me feel at home.'},
+      {id:'ordinary',x:69,y:35,color:'#d5b86d',title:'the ordinary days',message:'You make the ordinary days feel special and I wish I could remember every day.'},
+    {id:'laughter',x:18,y:65,color:'#b5bee0',title:'your laugh',message:'I love to see you smile and laugh.'},
+    {id:'courage',x:75,y:65,color:'#c4add1',title:'something you gave me',message:'Ever since I was a kid you always told me to be kind so I am.'},
+    {id:'seen',x:42,y:77,color:'#f1c6a1',title:'thank you',message:'Thank you for always noticing things about me, even when nobody else does.'},
+      {id:'wish',x:48,y:24,color:'#ece5ac',title:'a wish for you',message:'I wish you were always happy and healthy, and always get good rest. I want you to do things you like, you deserve everything mom.'}
   ],
-  // Add pic1.jpg through pic18.jpg to public/assets/.
   memories: Array.from({ length: 18 }, (_, i) => ({
     id: `pic${i + 1}`,
     image: `/assets/pic${i + 1}.JPG`,
@@ -25,6 +24,6 @@ export const content = {
     title: '',
     caption: ''
   })),
-  compliments: ['I love the way you care about the little things.','I love your laugh. Especially when you can’t stop.','I love how you make people feel welcome.','I love that so much of who I am began with you.','I love you on the ordinary days, too.'],
-  music: { file: null, volume: 0.16 } // e.g. '/assets/your-licensed-song.mp3'. null uses the included original music-box melody.
+    compliments: ['I love that you are always on time.','I love when you smile','I love how I can always come home.','I love that I can be your son.','I love you everyday.', 'I love how humble you are.', 'You are awesome', 'Thank you for always doing your best to take care of me.', 'Thank you for trying so hard all the time.', 'Your cooking is the best even though dad doesnt like it, I love eomma haejuneun bab.', 'Thanks for making me smarter than everyone else.', 'I want you in my life forever mom.'],
+  music: { file: null, volume: 0.16 } // '/assets/song.mp3'. null uses the included original music-box melody.
 };

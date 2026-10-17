@@ -29,7 +29,7 @@ export async function memoriesPage(root) {
     const photo = photos[index];
     if (!photo) {
       image.hidden = true;
-      status.textContent = 'A little space for memories to come.';
+      status.textContent = 'Space for our memories.';
       return;
     }
     image.hidden = false;
@@ -53,7 +53,7 @@ export async function memoriesPage(root) {
   }
   image.onerror = () => {
     image.style.visibility = 'hidden';
-    status.textContent = 'This photo couldn’t load. You can try the next one.';
+      status.textContent = 'This photo couldn’t load!';
   };
   image.onload = () => { image.style.visibility = 'visible'; status.textContent = ''; };
   root.querySelector('.prev').onclick = () => step(-1);
