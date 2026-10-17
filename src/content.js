@@ -24,6 +24,6 @@ export const content = {
     title: '',
     caption: ''
   })),
-    compliments: ['I love that you are always on time.','I love when you smile','I love how I can always come home.','I love that I can be your son.','I love you everyday.', 'I love how humble you are.', 'You are awesome', 'Thank you for always doing your best to take care of me.', 'Thank you for trying so hard all the time.', 'Your cooking is the best even though dad doesnt like it, I love eomma haejuneun bab.', 'Thanks for making me smarter than everyone else.', 'I want you in my life forever mom.', 'I\'m never too busy for you mom.', 'I\'ll never be too busy for you mom.', 'Does appa like my website? pretty impressive right?'],
+    compliments: ['I love that you are always on time.','I love when you smile','I love how I can always come home.','I love that I can be your son.','I love you everyday.', 'I love how humble you are.', 'You are awesome', 'Thank you for always doing your best to take care of me.', 'Thank you for trying so hard all the time.', 'Your cooking is the best even though dad doesnt like it, I love eomma haejuneun bab.', 'Thanks for making me smarter than everyone else.', 'I want you in my life forever mom.', 'I\'m never too busy for you mom.', 'I\'ll never be too busy for you mom.', 'Does appa like my website? pretty impressive right?', 'tommy and mom 2026', 'Show your friends so they can admire you and me.'],
   music: { file: null, volume: 0.16 } // '/assets/song.mp3'. null uses the included original music-box melody.
 };
