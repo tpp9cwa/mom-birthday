@@ -1,0 +1,6 @@
+import {createServer} from 'node:http';
+import {readFile,stat} from 'node:fs/promises';
+import {resolve,sep,extname} from 'node:path';
+const built=process.argv[2]==='dist',base=resolve(built?'dist':'.'),port=Number(process.env.PORT||5173);
+const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.jpg':'image/jpeg','.jpeg':'image/jpeg','.png':'image/png','.webp':'image/webp','.mp3':'audio/mpeg','.ogg':'audio/ogg','.woff2':'font/woff2'};
+createServer(async(req,res)=>{try{let pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);if(pathname==='/')pathname='/index.html';let file=resolve(base,'.'+pathname);if(!built&&pathname.startsWith('/assets/'))file=resolve(base,'public','.'+pathname);if(!file.startsWith(base+sep)){res.writeHead(403);return res.end();}const data=await readFile(file);res.writeHead(200,{'Content-Type':mime[extname(file)]||'application/octet-stream','Cache-Control':'no-cache'});res.end(data);}catch{res.writeHead(404);res.end('Not found');}}).listen(port,'0.0.0.0',()=>console.log(`Open http://localhost:${port} (use your laptop's LAN IP on your phone, on the same Wi-Fi)`));
